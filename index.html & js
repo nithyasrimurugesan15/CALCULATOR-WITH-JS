@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <center>
+
+        <h2>CALCULATOR WITH JS</h2>
+    
+    <div class="cal">
+    <form name="calcy">
+        <input type="text" name="display" class="box"><br><br>
+        <input type="button" value="AC" class="butt" onclick="AC()">
+        <input type="button" value="DEL" class="butt"onclick="DEL()" >
+        <input type="button" value="%" class="butt" onclick="append('%')">
+        <input type="button" value="/" class="butt" onclick="append('/')"><br><br>
+        <input type="button" value="7" class="butt" onclick="append('7')">
+        <input type="button" value="8" class="butt" onclick="append('8')">
+        <input type="button" value="9" class="butt" onclick="append('9')">
+        <input type="button" value="*" class="butt" onclick="append('*')"><br><br>
+        <input type="button" value="4" class="butt" onclick="append('4')">
+        <input type="button" value="5" class="butt" onclick="append('5')">
+        <input type="button" value="6" class="butt" onclick="append('6')">
+        <input type="button" value="-" class="butt" onclick="append('-')"><br><br>
+        <input type="button" value="1" class="butt" onclick="append('1')">
+        <input type="button" value="2" class="butt" onclick="append('2')">
+        <input type="button" value="3" class="butt" onclick="append('3')">
+        <input type="button" value="+" class="butt" onclick="append('+')"><br><br>
+        <input type="button" value="e" class="butt" onclick="append('e')">
+        <input type="button" value="0" class="butt" onclick="append('0')">
+        <input type="button" value="." class="butt" onclick="append('.')">
+        <input type="button" value="=" class="butt" onclick="calculate()"><br><br>
+    </form>
+</div>
+    </center>
+    <script>
+        function AC() {
+            document.calcy.display.value = '';
+        }
+        
+        function DEL() {
+            var value = document.calcy.display.value;
+            document.calcy.display.value = value.substring(0, value.length - 1);
+        }
+        
+        function append(character) {
+            document.calcy.display.value += character;
+        }
+        
+        function calculate() {
+            try {
+                var result = eval(document.calcy.display.value);
+                document.calcy.display.value = result;
+            } catch (error) {
+                document.calcy.display.value = 'Error';
+            }
+        }
+    </script>
+</body>
+</html>
